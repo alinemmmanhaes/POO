@@ -94,6 +94,33 @@ public class Pessoa {
         System.out.println("avó paterna " + this.getNomeAvoFPai() + " e avô paterno " + this.getNomeAvoMPai());
     }
 
+    private void fillAntepassados(java.util.Set<Pessoa> antepassados){
+        if(antepassados.contains(this)){
+            //System.out.println("Laço na lista de antepassados");
+            return;
+        }
+        antepassados.add(this);
+        if(this.mae != null) this.mae.fillAntepassados(antepassados);
+        if(this.pai != null) this.pai.fillAntepassados(antepassados);
+    }
+
+    public java.util.Set<Pessoa> getAntepassados(){
+        java.util.Set<Pessoa> antepassados = new java.util.HashSet<Pessoa>();
+        
+        // if(this.mae != null){
+        //     antepassados.add(this.mae);
+        //     antepassados.addAll(this.mae.getAntepassados());
+        // }
+        // if(this.pai != null){
+        //     antepassados.add(this.pai);
+        //     antepassados.addAll(this.pai.getAntepassados());
+        // }
+
+        if(this.mae != null) this.mae.fillAntepassados(antepassados);
+        if(this.pai != null) this.pai.fillAntepassados(antepassados);
+        return antepassados;
+    }
+
     public String toString() {
         return this.getNome();
     }

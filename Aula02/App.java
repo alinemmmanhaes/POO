@@ -24,6 +24,6 @@ public class App {
         aline.geraArvore();
         System.out.println();
 
-        System.out.println(aline);
+        System.out.println(barbara.getAntepassados());
     }
 }
