@@ -24,6 +24,10 @@ public class Departamento {
         return this.nome;
     }
 
+    public Empresa getEmpresa(){
+        return this.empresa;
+    }
+
     public float getMediaSalarial() {
         if (this.funcionarios.size() == 0)
             return 0;
