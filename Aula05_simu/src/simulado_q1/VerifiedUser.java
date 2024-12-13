@@ -8,4 +8,8 @@ public class VerifiedUser extends User {
         super(twitterId);
         this.date = date;
     }
+
+    public Date getDate() {
+        return date;
+    }
 }
